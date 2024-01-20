@@ -5,6 +5,8 @@ Práctica de CI4
 >composer create-project codeigniter4/appstarter blog
 
 ### Configuracion del variables de entorno
-En primer lugar renombrar el archivo env y colocarle un . adelante quedaría asi: .env
-Para trabajar en local cambiar a development la variable: CI_ENVIRONMENT.
+En primer lugar renombrar el archivo env y colocarle un . adelante quedaría asi: .env 
+
+Para trabajar en local cambiar a development la variable: CI_ENVIRONMENT. 
+
 Indicar la url en este caso: app.baseURL = 'http://blog.test'
