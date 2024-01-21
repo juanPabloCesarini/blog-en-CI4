@@ -9,6 +9,9 @@ use CodeIgniter\Router\RouteCollection;
 
 $routes->group('',['namespace' => 'App\Controllers\Front'], function($routes){
      $routes->get('/', 'Home::index');
-     $routes->get('libreria', 'Home::sayHola');
+     
 });
 
+$routes->group('auth', ['namespace' => 'App\Controllers\Auth'], function ($routes) {
+     $routes->get('login', 'Register::index');
+});
