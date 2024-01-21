@@ -39,4 +39,11 @@ Luego
 
 >php spark migrate 
 
+Para crear los seeders 
+>php spark make:seeder InitSeeder (el nombre hace referencia al seeder inicial o constructor)
+
+Para correr el seeder 
+>php spark db:seed InitSeeder
+
+
 
