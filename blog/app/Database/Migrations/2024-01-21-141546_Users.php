@@ -29,6 +29,7 @@ class Users extends Migration
             'group' => [
                 'type'           => 'INT',
                 'constraint'     => 12,
+                'unsigned'       => true,
                 'null' => false,
             ],
             'created_at' => [
@@ -45,6 +46,7 @@ class Users extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
+        $this->forge->addForeignKey('group', 'groups', 'id_group', 'CASCADE', 'CASCADE');
         $this->forge->createTable('users');
     }
 

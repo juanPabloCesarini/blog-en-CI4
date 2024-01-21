@@ -31,7 +31,7 @@ class InfoUsers extends Migration
                 'type'           => 'INT',
                 'constraint'     => 12,
                 'unsigned'       => true,
-                'null' => false,
+                'null' => true,
             ],
             'created_at' => [
                 'type' => 'DATETIME',
@@ -43,7 +43,10 @@ class InfoUsers extends Migration
             ],
         ]);
         $this->forge->addKey('id_user', true);
+        $this->forge->addForeignKey('id_country', 'countries', 'id_country', 'CASCADE', 'SET NULL' );
+        $this->forge->addForeignKey('id_user', 'users', 'id', 'CASCADE', 'CASCADE');
         $this->forge->createTable('info_users');
+        
     }
 
     public function down()

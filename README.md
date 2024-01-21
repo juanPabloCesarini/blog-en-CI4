@@ -18,7 +18,8 @@ Para crear tablas en la base de datos se usan las migraciones, por linea de coma
 Para crear la tabla en la base de datos el comando es:
 >php spark migrate
 
-**Atención**
+**Atención** 
+
 Verificar que las variables de entorno estén bien configuradas, este es un ejemplo
 
 ```env
@@ -30,3 +31,12 @@ database.default.DBDriver = MySQLi
 # database.default.DBPrefix =
 database.default.port = 3306
 ```
+Para modificar tablas en la db
+
+>php spark migrate:refresh (borra lo creado) 
+
+Luego 
+
+>php spark migrate 
+
+
