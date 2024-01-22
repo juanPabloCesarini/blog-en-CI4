@@ -13,25 +13,26 @@ class Register extends BaseController
      {
           $this->configs = config('Blog');
      }
-     public function index(){
+     public function index()
+     {
           $data = [
-               'email' => "jpc@hotmail.com",
-               'password' =>'jpc1234',
-               'name' => 'juan Pablo',
-               'surname' => 'Cesarini',             
-               'id_country'  => 3
+               'email' => "ap@hotmail.com",
+               'password' => 'jpc1234',
+               'name' => 'Agus',
+               'surname' => 'planas',
+               'id_country'  => 4
           ];
-         $user= new User($data);
-         $user->generateUsesrname();
+          $user = new User($data);
+          $user->generateUsesrname();
           $model = model('UsersModel');
-          d($this->configs);
-     //     $model->save($user);
+          
+          $model->withGroup($this->configs->defaultGroupUsers);
+          $model->save($user);
 
           return view('Auth\register');
-          
      }
-     
-     public function store(){
 
+     public function store()
+     {
      }
 }
