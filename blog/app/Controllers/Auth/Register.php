@@ -16,6 +16,12 @@ class Register extends BaseController
      }
      public function index()
      {
+          
+          return view('Auth/register');
+     }
+
+     public function store()
+     {
           $data = [
                'email' => "ap@hotmail.com",
                'password' => 'jpc1234',
@@ -26,17 +32,12 @@ class Register extends BaseController
           $user = new User($data);
           $user->generateUsesrname();
           $model = model('UsersModel');
-          
+
           $model->withGroup('admin');
 
-          $userInfo= new UserInfo($data);
+          $userInfo = new UserInfo($data);
           $model->addInfoUser($userInfo);
           $model->save($user);
 
-          return view('Auth\register');
-     }
-
-     public function store()
-     {
      }
 }
