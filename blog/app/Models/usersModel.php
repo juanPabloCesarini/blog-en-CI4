@@ -4,6 +4,8 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 use App\Entities\User;
+use App\Entities\UserInfo;
+
 
 class usersModel extends Model
 {
@@ -25,9 +27,20 @@ class usersModel extends Model
   protected $deletedField  = 'deleted_at';
 
   protected $beforeInsert  = ['addGroup'];
+  protected $afterInsert  = ['storeUserInfo'];
 
   protected $assignGroup;
 
+  protected $infoUser;
+
+
+  protected function storeUserInfo($data){
+    $this->infoUser->id_user = $data['id'];
+    $model = model('UsersInfoModel');
+    $model->insert($this->infoUser);
+
+    
+  }
   protected function addGroup($data){
     $data['data']['group'] = $this->assignGroup;
     return $data;
@@ -41,5 +54,9 @@ class usersModel extends Model
     if ($row != null) {
       $this->assignGroup = $row->id_group;
     }
+  }
+
+  public function addInfoUser(UserInfo $ui){
+    $this->infoUser =$ui;
   }
 }
